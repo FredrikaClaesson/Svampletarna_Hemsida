@@ -1,0 +1,83 @@
+<!--===============================
+    BASINNEHÅLL
+    ===============================-->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Mina svampar | Svampletarna</title>
+     <link rel="stylesheet" href="../CSS/app.css">
+     <link rel="stylesheet" href="../CSS/mina_svampar.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+     <script src="../JS/mina_svampar.js" defer></script>
+</head>
+
+
+
+<body>
+  <!--==============================
+      SIDHUVUD OCH NAVIGATION 
+      ==============================-->
+  <header>
+    <nav aria-label="Huvudnavigation">
+      <div class="logotyp">
+         <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
+         <h1>Svampletarna</h1>
+      </div>
+      <ul>
+         <li>
+            <a href="index.html">Startsida</a>
+         </li>
+         <li>
+            <a href="mina_svampar.html" aria-current="page">Mina svampar</a>
+         </li>
+         <li>
+            <a href="svamp_risker.html">Svamprisker</a>
+         </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <!--==============================
+      SIDANS HUVUDINNEHÅLL
+      ==============================-->
+  <main>
+    <section>
+        <h2>Mina svampar</h2>
+        <!-- Ljusgrön informationsruta -->
+        <p class="green-section">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          Här hittar du alla dina svampar
+        </p>
+        <div class="mushroom-card" id="muschroom-list"></div>
+         <!-- Behållaren gör att knappen och texten kan ligga bredvid 
+          varandra med hjälp av Flexbox -->
+        <div class="clear">
+            <!-- Knappen rensar användarens svamplista -->
+            <button type="button" id="red.button" class="red">
+                   <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                   Rensa historik
+            </button>
+            <!-- Varningstext bredvid knappen -->
+            <p class="warning-text">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+              <span>Varning!</span> Alla svampar tas bort.
+            </p>
+        </div>
+    </section>
+  </main>
+
+
+
+  <!--==============================
+      SIDFOT 
+      ==============================-->
+  <footer>
+    <p>Svampletarna – För dig som älskar skogen</p>
+    <p>&copy; 2026 Svampletarna</p>
+  </footer>
+</body>
+</html>
