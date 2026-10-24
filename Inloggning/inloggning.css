@@ -1,0 +1,132 @@
+/* Gör att padding och border räknas in i elementens totala bredd och höjd */
+* {
+    box-sizing: border-box;
+}
+
+/* Styling för hela sidan - tar bort webbläsarens standardmarginal 
+runt sidan, typsnitt, bakgrundsfärg, textfärg */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f8f1;
+    color: #263326;
+}
+
+/* Styling för sidhuvud - textens placering, skapar utrymme inuti 
+sidhuvudet, bakgrundsfärg */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #dfead8;
+}
+
+/* Tar bort standardmarginalen runt huvudrubriken */
+header h1 {
+    margin: 0;
+}
+
+/* Tar bort marginalen under texten under huvudrubriken */
+header p {
+    margin-bottom: 0;
+}
+
+/* Sidans huvudinnehåll - använder flexbox för placering av innehåll, 
+centrerar horisontellt, skapar utrymme runt huvudinnehåll */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Behållare för bild och inloggning - använder hela tillgängliga bredden, 
+begränsar bredden så att behållaren inte blir bredare än 450px,
+skapar utrymme mellan innehållet och behållarens kanter,
+bakgrundsfärg, rundar behållarens hörnen */
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* Bild - gör bilden till ett blockelement, använder hela behållarens bredd, 
+höjden anpassas automatiskt så att proportioner behålls, rundar bildens hörnen */
+.login-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* H2 rubriker - skapar utrymme ovanför rubriken */
+h2 {
+    margin-top: 25px;
+}
+
+/* Inloggningsformulär - använder flexbox för formulärets innehåll, 
+placerar innehållet under varandra */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Text ovanför inmatningsfälten - skapar utrymme ovanför text,
+skapar ett mindre utrymme mellan texten och inmatningsfältet,
+gör texten i fet stil */
+label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inmatningsfält för namn och lösenord - fältet använder hela 
+tillgängliga bredden, utrymme inuti fältet, amger textstorlek,
+grå kant runt fältet, rundar fältets hörn */
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #999999;
+    border-radius: 5px;
+}
+
+/* Ändrar utseende av inmatningsfält när användar markerat, 
+visar en grön markering runt det aktiva fältet, mellanrum mellan
+fält och markering */
+input:focus {
+    outline: 2px solid #547a4a;
+    outline-offset: 2px;
+}
+
+/* Knappar - skapar utrymme ovanför knappen, utymme inuti knappen, 
+anger textstorlek, bakgrundsfärg, textfärg, tar bort knappens 
+vanliga kant, rundar hörn, ändrar muspekaren till en "hand" 
+när den är över knappen */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #547a4a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+/* När muspekaren är över en knapp ändras färgen */
+button:hover {
+    background-color: #3f6037;
+}
+
+/* Felmeddelande vid fel inloggningsuppgifter - ändrar textfärg, gör texten i fet stil*/
+#error-message {
+    color: #b00020;
+    font-weight: bold;
+}
+
+/* Sidfot - centrerar texten, skapar utrymme inuti sidfoten*/
+footer {
+    text-align: center;
+    padding: 20px;
+}

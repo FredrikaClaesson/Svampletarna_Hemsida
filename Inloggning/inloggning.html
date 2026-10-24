@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- Anger språk svenska -->
+<html lang="sv">
+
+<head>
+    <!-- Anger teckenkodning så att bland annat å, ä och ö visas korrekt -->
+    <meta charset="UTF-8">
+    <!-- Gör att webbsidan anpassar sig efter olika skärmstorlekar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Texten som visas på webbläsarens flik -->
+    <title>Svampletarna – Logga in</title>
+    <!-- Kopplar min css fil för design -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Kopplar min js fil för funktion, defer för att JavaScript ska köras efter att HTML-dokumentet har lästs in-->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <!-- Lägger till en huvudrubrik -->
+        <h1>Svampletarna</h1>
+        <!-- Lägger till en välkomsttext -->
+        <p>Välkommen till föreningens medlemssida</p>
+    </header>
+
+    <main>
+        <!-- Behållare för bild och inloggning -->
+        <div class="login-container">
+            <!-- Kopplar min bild, samt alternativ text för tillgänglighet -->
+            <img src="svamp.jpg" alt="Svampar i en svensk skog">
+            
+            <!-- Sektion som innehåller inloggningsformuläret -->
+            <section id="login-section">
+                <h2>Logga in</h2>
+                
+                <!-- Formulär för namn och lösenord -->
+                <form id="login-form">
+
+                    <!-- Inmatningsfält för namn -->
+                    <label for="username">Namn</label>
+                    <!-- type text = berättar för webbläsaren att det är synlig text som ska matas in
+                    id username = för att js ska kunna avläsa vad användaren skrivit in
+                    namn username = ger fältet ett namn
+                    required = fältet måste fyllas i av användaren innan det kan skickas för kontroll -->
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                    >
+
+                    <!-- Inmatningsfält för lösenord -->
+                    <label for="password">Lösenord</label>
+                    <!-- type password = webbläsaren döljer vad användaren skriver in med prickar eller dylikt
+                    id password = för att js ska kunna avläsa vad användaren skrivit in
+                    namn password = ger fältet ett namn
+                    required = fältet måste fyllas i av användaren innan det kan skickas för kontroll -->
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                    >
+
+                    <!-- Knapp som skickar det ifyllda formuläret för kontroll -->
+                    <button type="submit">Logga in</button>
+
+                </form>
+
+                <!-- Här visas felmeddelandet vid felaktig inloggning -->
+                <p id="error-message"></p>
+            </section>
+
+            <!-- Sektion som visas när användaren är inloggad, hidden gör att sektionen är dold från början -->
+            <section id="logged-in-section" hidden>
+                <h2 id="welcome-message"></h2>
+
+                <!-- Knapp för att logga ut användaren -->
+                <button id="logout-button" type="button">
+                    Logga ut
+                </button>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Sidfot -->
+    <footer>
+        <!-- Snygg avslutning på sidan - copyright och webbsidans namn -->
+        <p>&copy; 2026 Svampletarna</p>
+    </footer>
+
+</body>
+
+</html>
