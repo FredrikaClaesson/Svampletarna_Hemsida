@@ -1,3 +1,31 @@
+// Tillgänglig mobilmeny: fungerar med mus, Enter, mellanslag och Escape.
+const menuButton = document.querySelector('.menu-toggle');
+const mainMenu = document.querySelector('#huvudmeny');
+if (menuButton && mainMenu) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    mainMenu.classList.toggle('menu-open', !isOpen);
+    menuButton.querySelector('.visually-hidden').textContent = isOpen ? 'Öppna menyn' : 'Stäng menyn';
+    if (!isOpen) mainMenu.querySelector('a').focus();
+  });
+  mainMenu.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mainMenu.classList.contains('menu-open')) {
+      mainMenu.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.querySelector('.visually-hidden').textContent = 'Öppna menyn';
+      menuButton.focus();
+    }
+  });
+  mainMenu.addEventListener('click', event => {
+    if (event.target.closest('a') && window.matchMedia('(max-width: 900px)').matches) {
+      mainMenu.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.querySelector('.visually-hidden').textContent = 'Öppna menyn';
+    }
+  });
+}
+
 const svamparContainer = document.getElementById('svamp-section');
 
 async function fetchDataFromJson() {
