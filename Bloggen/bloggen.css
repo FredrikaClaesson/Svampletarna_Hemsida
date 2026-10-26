@@ -1,0 +1,94 @@
+.blog-intro, .account-panel, .write-panel, .post {
+  border-radius: 1rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  margin-block: 1.25rem;
+}
+.blog-intro {
+  background: var(--lightgreen);
+}
+.blog-intro h2 {
+  margin-block: .2rem .6rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+.eyebrow {
+  color: var(--green);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.account-panel, .write-panel, .post {
+  background: var(--white);
+  box-shadow: 0 2px 8px #00000012;
+}
+.write-panel {
+  background: var(--lightgreen);
+}
+form {
+  display: grid;
+  gap: .55rem;
+  max-width: 760px;
+}
+label {
+  font-weight: 700;
+}
+input, textarea {
+  width: 100%;
+  border: 1px solid #687b6c;
+  border-radius: .4rem;
+  padding: .7rem;
+  color: var(--text);
+  background: var(--white);
+  font: inherit;
+}
+textarea {
+  resize: vertical;
+}
+input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 3px solid #a15c14;
+  outline-offset: 3px;
+}
+.posts {
+  display: grid;
+  gap: 1rem;
+}
+.post h3 {
+  margin-block: .2rem .5rem;
+}
+.post-meta {
+  color: #536456;
+  font-size: .9rem;
+}
+.post-content {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.comments {
+  border-top: 1px solid var(--lightgreen);
+  margin-top: 1rem;
+  padding-top: .75rem;
+}
+.comments h4 {
+  margin: .25rem 0 .5rem;
+}
+.comment {
+  border-left: 3px solid var(--lightgreen);
+  padding: .2rem .8rem;
+  margin-block: .75rem;
+}
+.comment p {
+  margin-block: .25rem;
+}
+.comment-form {
+  margin-top: .8rem;
+}
+.status {
+  min-height: 1.5em;
+  color: var(--red);
+  font-weight: 700;
+}
+.empty-message {
+  padding: 1rem;
+  border: 1px dashed var(--green);
+  border-radius: .6rem;
+}

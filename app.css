@@ -1,15 +1,11 @@
-/* ===================================
-   - GEMENSAM STYLING | SVAMPLETARNA -
-   =================================== */
-
-
-
+/*GEMENSAM STYLING FÖR ALLA SIDOR I PROJEKTET*/
 /* ===================================
    FÄRGER
    =================================== */
-  /* root används för att skapa variabler */
-:root 
-{
+/* :root används för att skapa variabler
+   som kan återanvändas i hela CSS-filen. */
+:root {
+  --serif: Georgia, "Times New Roman", serif;
   --darkgreen: #173d2b;
   --green: #315b40;
   --lightgreen: #e4ead8;
@@ -19,311 +15,339 @@
   --lightpink: #ffe8e2;
   --red: #b42318;
   --lightred: #f8d0c8;
+  --surface: #fffefa;
+  --line: #cbd5c3;
 }
 
 
-
 /* ===================================
-   GRUNDINSTÄLLNINGAR 
+   GRUNDINSTÄLLNINGAR
    =================================== */
-/* Padding och border räknas in i elementets bredd och höjd */
-* 
-{
+/* box-sizing gör att padding och border
+   räknas in i elementets totala storlek. */
+* {
   box-sizing: border-box;
 }
-body 
-{
+body {
   margin: 0;
-  background-color: var(--cream);
+  background: var(--cream);
   color: var(--text);
   font-family: Arial, sans-serif;
-  line-height: 1.5;
-  /* Utnyttjar hela den synliga skärmens fulla höjd */
-  min-height: 100vh;
-  /* Aktiverar flexbox */
-  display: flex;
-  /* Placerar header, main och footer under varandra */
-  flex-direction: column;
+  line-height: 1.6;
 }
-/* Placera footer längst ner på sidan */
-main 
-{
-  flex: 1;
-}
-
-
-
-/* ===================================
-   RUBRIKER
-   =================================== */
-h1, h2, h3 
-{
+/* Gemensam styling för rubriker */
+header h1,
+main h1,
+main h2,
+main h3 {
   color: var(--darkgreen);
-  /* Minskar avstånd mellan rader för rubriker */
-  line-height: 1.2;
+  font-family: var(--serif);
+  line-height: 1.15;
 }
-
 
 
 /* ===================================
-   BILDER
+   HEADER OCH NAVIGATION
    =================================== */
-img 
-{
-  max-width: 100%;
-  height: auto;
+header {
+  background: rgba(245, 243, 232, .97);
+  border-bottom: 1px solid rgba(203, 213, 195, .55);
+  padding: .65rem clamp(1rem, 4vw, 3.5rem);
 }
-
-
-
-/* ===================================
-   NAVIGATION - FLEXBOX
-   =================================== */
-header 
-{
-  background-color: var(--cream);
-  padding: 1rem;
-}
-nav 
-{
-  /* Flexbox för att placera logotyp och meny */
+header nav {
   display: flex;
-  /* Mobile First - kolumnlayout på små skärmar */
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 1440px;
+  margin: 0 auto;
 }
-nav a 
-{
-  color: var(--darkgreen);
-  /* Tar bort understrykning på länkar */
-  text-decoration: none;
-  font-size: 0.75rem;
-}
-nav h1 
-{
-  color: var(--darkgreen); 
-  font-size: 1.5rem; 
-  margin: 0;         
-}
-nav ul 
-{
-  /* Flexbox för att placera länkarna */
+/* Logotypen placeras bredvid navigationen */
+.logotyp,
+header nav > a:first-child:has(img) {
   display: flex;
-  /* Mobile first - länk byter rad om det inte finns plats */
+  align-items: center;
+  gap: .65rem;
+  min-width: 0;
+  text-decoration: none;
+}
+/* Bilden anpassas efter skärmens storlek */
+.logotyp img,
+header nav > a:first-child:has(img) img {
+  display: block;
+  width: clamp(190px, 27vw, 330px);
+  height: auto;
+  max-height: 86px;
+  object-fit: contain;
+  object-position: left center;
+}
+/* Navigationslänkarna placeras på en rad
+   och får radbrytas om skärmen blir för liten. */
+header nav ul {
+  display: flex;
   flex-wrap: wrap;
-  /* Centrerar länkar horisontellt */
-  justify-content: center;
-  gap: 1rem;
-  /* Tar bort listans punkter */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
-
-/* ===================================
-   MENYVAL SOM KNAPPAR
-   =================================== */
-/* Alla länkar i navigationslistan */
-nav ul a 
-{
-  background-color: var(--darkgreen);
-  color: var(--white);
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.5rem;
-  display: inline-block;
-  text-decoration: none;
-}
-/* När muspekaren hålls över menyvalen */
-nav ul a:hover 
-{
-  background-color: var(--lightgreen);
-  color: var(--darkgreen);
-}
-/* Markerar den sida användaren befinner sig på */
-nav ul a[aria-current="page"] 
-{
-  background-color: var(--lightgreen);
-  color: var(--darkgreen);
-  font-weight: bold;
-}
-
-
-
-/* ===================================
-   LOGOTYP OCH FÖRENINGENS NAMN
-   =================================== */
-/* Behållaren för logotyp och rubrik */
-.logotyp 
-{
-  /* Flexbox placerar bilden och texten bredvid varandra */
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-/* Logotypen */
-.logotyp img 
-{
-  width: 70px;
-  height: auto;
-}
-/* Föreningens namn */
-.logotyp h3 
-{
-  color: var(--darkgreen);
-  font-size: 1.5rem;
+  justify-content: flex-end;
+  gap: clamp(.2rem, 1.2vw, 1rem);
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Gemensam styling för navigationslänkarna */
+header nav ul a,
+header nav > a:not(.logotyp) {
+  display: inline-block;
+  padding: .65rem .85rem;
+  border-radius: 2rem;
+  background: transparent;
+  color: var(--darkgreen);
+  font-size: .9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* Ändrar utseendet när man håller musen över
+   en länk eller befinner sig på den aktuella sidan. */
+header nav ul a:hover,
+header nav ul a[aria-current="page"],
+header nav > a:not(.logotyp):hover {
+  background: var(--darkgreen);
+  color: var(--white);
 }
 
+
+/* ===================================
+   HUVUDINNEHÅLL
+   =================================== */
+main {
+  width: min(1440px, 100% - 2rem);
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+/* Gemensamma rundade hörn för större sektioner */
+main > section,
+main > .login-container,
+main > .svampkort,
+main > #articles {
+  border-radius: 1.5rem;
+}
+/* Rubriker får en ljusgrön bakgrund */
+main > h2 {
+  margin: .6rem 0 1.2rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(180deg, #e9eddd 0%, #eef0e2 100%);
+  border-radius: 3rem 3rem .8rem .8rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+}
 
 
 /* ===================================
    SVAMPKORT - CSS GRID
    =================================== */
-/* Skapar en behållaren för alla svampkort */
-.svampkort 
-{
+/* Skapar en behållare för alla svampkort.
+   Mobile first innebär att vi börjar med en kolumn. */
+.svampkort {
   display: grid;
-  /* Mobile first - en kolumn på små skärmar */
   grid-template-columns: 1fr;
   gap: 1.5rem;
   padding: 1rem 0;
 }
-/* Varje svampkort */
-.svampkort article 
-{
-  background-color: var(--white);
-  /* Rundade hörn */
-  border-radius: 1rem;
-  padding: 1rem;
-  /* Skugga under korten */
-  box-shadow: 0 2px 8px #00000015;
+/* Varje svampkort får vit bakgrund,
+   rundade hörn och en diskret skugga. */
+.svampkort article,
+.mushroom-card article,
+.post,
+.account-panel,
+.write-panel,
+.login-container {
+  background: var(--surface);
+  border: 1px solid #d7dfd0;
+  border-radius: 1rem 1rem 1.7rem 1rem;
+  box-shadow: 0 4px 14px #173d2b0d;
 }
-/* Bilder i korten */
-.svampkort img 
-{
+.svampkort article {
+  padding: 1rem;
+}
+/* Bilderna fyller kortets bredd.
+   object-fit beskär bilden om det behövs. */
+.svampkort img {
   width: 100%;
   height: 200px;
-  /* Delar av bilden kan beskäras */
+  border-radius: .5rem;
   object-fit: cover;
-  border-radius: 0.5rem;
 }
 /* Svampens namn */
-.svampkort h2 
-{
-  margin-bottom: 0.25rem;
+.svampkort h2 {
+  margin-bottom: .25rem;
 }
-/* Latinskt namn */
-/* h2 + p innebär att p kommer direkt efter h2 istället för radbyte */
-.svampkort h2 + p 
-{
-  /* Text i kursiv stil */
-    font-style: italic;
+/* h2 + p väljer ett p-element som kommer
+   direkt efter h2. Här används kursiv text
+   för svampens latinska namn. */
+.svampkort h2 + p {
+  font-style: italic;
 }
-/* Kryssrutor */
-/* label innehåller kryssrutan och texten
-   "Jag har hittat denna svamp". */
-.svampkort label 
-{
+/* Kryssrutan och dess text placeras bredvid varandra.
+   cursor gör muspekaren till en hand. */
+.svampkort label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  /* cursor gör muspekaren till en hand när man lägger den på kryssrutan */
+  gap: .5rem;
   cursor: pointer;
 }
 
+
+/* ===================================
+   FORMULÄR
+   =================================== */
+/* Gemensam styling för inmatningsfält */
+input,
+textarea,
+select {
+  padding: .7rem .8rem;
+  border: 1px solid #9aa995;
+  border-radius: .55rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
 
 
 /* ===================================
    GEMENSAMMA KNAPPAR
    =================================== */
 /* Gröna knappar */
-button 
-{
-  background-color: var(--darkgreen);
-  color: var(--white);
+button,
+input[type="submit"] {
+  padding: .7rem 1.2rem;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  /* Knappen ärver textinställningar från sitt föräldraelement. */
+  border-radius: 2rem;
+  background: var(--darkgreen);
+  color: var(--white);
   font: inherit;
+  font-weight: 700;
   cursor: pointer;
 }
-button:hover 
-{
-  background-color: var(--green);
+/* Mörkgrön knapp blir ljusare vid hover */
+button:hover,
+input[type="submit"]:hover {
+  background: var(--green);
 }
-/* Röda knappar */
-button.red 
-{
-  background-color: var(--lightpink);
-  color: var(--red);
-  border: 1px solid var(--lightred);
-  border-radius: 0.5rem;
-  padding: 0.8rem 1.5rem;
+/* Röda knappar, exempelvis ta bort */
+button.red {
   margin: 0;
+  padding: .8rem 1.5rem;
+  border: 1px solid var(--lightred);
+  border-radius: .5rem;
+  background: var(--lightpink);
+  color: var(--red);
 }
-button.red:hover 
-{
-  background-color: var(--lightred);
+button.red:hover {
+  background: var(--lightred);
+}
+
+
+/* ===================================
+   TILLGÄNGLIGHET
+   =================================== */
+/* Tydlig markering när man navigerar med tangentbord */
+:focus-visible {
+  outline: 3px solid #a15c14;
+  outline-offset: 4px;
 }
 
 
 /* ===================================
    FOOTER
    =================================== */
-footer 
-{
-  background-color: var(--lightgreen);
+footer {
+  margin-top: 1rem;
+  padding: 1.5rem 1rem;
+  border-radius: 2rem 2rem 0 0;
+  background: var(--lightgreen);
   color: var(--darkgreen);
   text-align: center;
-  padding: 1.5rem 1rem;
 }
-footer p 
-{
-  margin: 0.5rem 0;
+footer p {
+  margin: .3rem 0;
 }
-
 
 
 /* ===================================
    RESPONSIV DESIGN - MOBILE FIRST
    =================================== */
-/* CSS är i första hand anpassad för mobiltelefoner. 
-   Nu använder vi media queries för att anpassa layouten 
-   när skärmen blir större. */
+/* CSS är i första hand anpassad för mobiltelefoner.
+   Media queries ändrar layouten när skärmen blir större. */
+
 /* SURFPLATTA - MINST 600PX */
-@media (min-width: 600px) 
-{
-/* 2 svampkort per rad i två lika stora kolumner */
-  .svampkort 
-  {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 600px) {
+  /* Två svampkort per rad i två lika stora kolumner */
+  .svampkort {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  nav a{
+  nav ul a {
     font-size: 1rem;
   }
 }
-/* DATOR - MINST 768PX */
-@media (min-width: 768px) 
-{
-/* När skrämen är bredare än 768px ändras navigationen 
-från kolumnlayout till radlayout. */
-  nav 
-  {
-    flex-direction: row;
-    /* Länkarna placeras med jämnt mellanrum */
-    justify-content: space-between;
+/* MINDRE SKÄRMAR - HÖGST 900PX */
+@media (max-width: 900px) {
+  /* Navigationen får radbrytas på mindre skärmar */
+  header nav {
+    flex-wrap: wrap;
+  }
+  /* Logotypen anpassas till skärmens bredd */
+  .logotyp img,
+  header nav > a:first-child:has(img) img {
+    width: clamp(170px, 48vw, 260px);
+    max-height: 65px;
+  }
+  /* Navigationslänkarna placeras på en ny rad */
+  header nav ul {
+    flex-basis: 100%;
+    justify-content: flex-start;
+    gap: .2rem;
+  }
+  header nav ul a,
+  header nav > a:not(.logotyp) {
+    padding: .6rem .75rem;
+  }
+  /* Minskar marginalerna runt innehållet */
+  main {
+    width: min(100% - 1.25rem, 1440px);
   }
 }
-/* STÖRRE SKÄRM - MINST 900PX */
-@media (min-width: 900px) 
-{
-/* 3 svampkort per rad i tre lika stora kolumner */
-  .svampkort 
-  {
-    grid-template-columns: repeat(3, 1fr);
+/* DATOR - MINST 900PX */
+@media (min-width: 900px) {
+  /* Tre svampkort per rad i tre lika stora kolumner */
+  .svampkort {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-} 
+}
+/* MOBIL - HÖGST 600PX */
+@media (max-width: 600px) {
+  header {
+    padding: .6rem .75rem;
+  }
+  header nav ul {
+    gap: .15rem;
+  }
+  header nav ul a,
+  header nav > a:not(.logotyp) {
+    padding: .55rem .65rem;
+    font-size: .85rem;
+  }
+  main {
+    padding-top: 1rem;
+  }
+  main > h2 {
+    border-radius: 2rem 2rem .7rem .7rem;
+  }
+  /* Två kolumner för funktionerna på startsidan */
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* En kolumn för svampar och blogginlägg */
+  .svampar,
+  .blog-teasers {
+    grid-template-columns: 1fr;
+  }
+}

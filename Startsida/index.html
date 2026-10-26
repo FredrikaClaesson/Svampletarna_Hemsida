@@ -1,69 +1,97 @@
-<!DOCTYPE html>
-<html lang="sv">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Svampletarna – Föreningen för svamp och natur</title>
-  <link rel="stylesheet" href="../CSS/app.css">
-  <link rel="stylesheet" href="../CSS/index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-  <script src="../JS/index.js" defer></script>
-</head>
-
-<body>
-  <!-- Sidhuvud och navigation -->
-  <header>
-    <nav aria-label="Huvudnavigation">
-      <div class="logotyp">
-        <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
-        <h1>Svampletarna</h1>
-      </div>
-      <ul>
-        <li>
-          <a href="index.html" aria-current="page">Startsida</a>
-        </li>
-        <li>
-          <a href="mina_svampar.html">
-            Mina svampar
-          </a>
-        </li>
-        <li>
-          <a href="svamp_risker.html">
-            Svamprisker
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-image">
-        <img src="../images/hero.jpg" alt="Svampar i skogen">
-      </div>
-      <div class="hero-content">
-        <h2>Välkommen till Svampletarna</h2>
-        <h3>För dig som tycker om skogen,
-          svampar och gemenskap.</h3>
-        <p>Svampletarnas förening samlar människor med
-          ett gemensamt intresse för svamp och natur. Här kan
-        våra medlemmar registrera sina fynd, upptäcka nya
-        svampar och lära sig mer om bäde ätliga och giftiga arter.</p>
-        <div class="hero-buttons">
-          <a href="#svamp-section" class="btn"><span class="fas fa-spa"></span> Utforska svampar <span class="fas fa-arrow-right"></span></a>
-          <a href="mina_svampar.html" class="btn"><span class="fas fa-seedling"></span>Mina svampar <span class="fas fa-arrow-right"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="svampar" id="svamp-section">
-    </section>
-  </main>
-    <footer>
-      <p>Svampletarna – För dig som älskar skogen</p>
-      <p>&copy; 2026 Svampletarna</p>
-    </footer>
-</body>
-
-</html>
+<!--===============================
+    BASINNEHÅLL
+===============================-->
+ <!DOCTYPE html>
+ <html lang="sv">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Startsida | Svampletarna</title>
+     <link rel="stylesheet" href="../app.css">
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+     <script src="script.js" defer></script>
+ </head>
+ <body>
+<!--==============================
+    SIDHUVUD OCH NAVIGATION
+===============================-->
+     <header>
+         <nav aria-label="Huvudnavigation">
+             <div class="logotyp">
+                 <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
+             </div>
+                 <ul id="huvudmeny">
+                     <!--aria-current="page" berättar för skärmläsare att länken är den aktuella sidan-->
+                     <li><a href="index.html" aria-current="page">Startsida</a></li>
+                     <li><a href="../Mina_svampar/mina_svampar.html">Mina svampar</a></li>
+                     <li><a href="../Information/information.html">Information</a></li>
+                     <li><a href="../Bloggen/bloggen.html">Bloggen</a></li>
+                     <!--aria-hidden="true" berättar för skärmläsare att ikonen ska ignoreras-->
+                     <li><a href="../Inloggning/inloggning.html">
+                         <i aria-hidden="true" class="fa-regular fa-user"></i>Inloggning</a></li>
+                 </ul>
+         </nav>
+     </header>
+<!--==============================
+    SIDANS HUVUDINNEHÅLL
+==============================-->
+     <main>
+         <!-- Huvudbild och introduktion -->
+         <section class="hero">
+             <img class="hero-image"
+             src="../images/hero-mushroom.jpg"
+             alt="En liten svamp som växer i grön mossa">
+         <section class="hero-content">
+             <h1>Upptäck svamparnas fascinerande värld</h1>
+             <p>
+                Svampletarnas förening samlar människor med ett
+                gemensamt intresse för svamp och natur. Här kan du
+                lära dig mer, dela dina fynd, få tips och vara en del
+                av vårt växande community.
+             </p>
+         </section>
+         </section>
+         <!-- De fyra informationsrutorna -->
+         <section class="features" aria-label="Detta hittar du hos oss">
+             <article>
+                 <i aria-hidden="true" class="fa-solid fa-seedling"></i>
+                 <h2>Lär dig mer</h2>
+                 <p>Få kunskap om olika svampar och deras miljöer.</p>
+                 <a href="../Information/information.html">Läs mer</a>
+             </article>
+             <article>
+                 <i aria-hidden="true" class="fa-solid fa-leaf"></i>
+                 <h2>Se dina fynd</h2>
+                 <p>Vilka svampar har du i din korg.</p>
+                 <a href="../Mina_svampar/mina_svampar.html">Läs mer</a>
+             </article>
+             <article>
+                 <i aria-hidden="true" class="fa-regular fa-lightbulb"></i>
+                 <h2>Ta del av tips</h2>
+                 <p>Få inspiration, recept och säsongens bästa tips.</p>
+                 <a href="../Bloggen/bloggen.html">Läs mer</a>
+             </article>
+             <article>
+                 <i aria-hidden="true" class="fa-regular fa-copy"></i>
+                 <h2>Information</h2>
+                 <p>Lär dig mer om svamp, säkerhet och miljö.</p>
+                 <a href="../Information/information.html">Läs mer</a>
+             </article>
+         </section>
+         <!-- Sektion för svampkort -->
+         <section
+             aria-label="Upptäck svampar"
+             class="svampar"
+             id="svamp-section">
+         </section>
+     </main>
+<!--==============================
+    SIDFOT 
+==============================-->
+ <footer>
+     <p>Svampletarna – För dig som älskar skogen</p>
+     <p>&copy; 2026 Svampletarna</p>
+ </footer>
+ </body>
+ </html>

@@ -1,0 +1,83 @@
+<!--===============================
+    BASINNEHÅLL
+===============================-->
+ <!DOCTYPE html>
+ <html lang="sv">
+ <head>
+     <meta charset="utf-8"/>
+     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+     <meta content="Läs och dela berättelser, svampfynd och tips från Svampletarnas medlemmar." name="description"/>
+     <title>Bloggen | Svampletarna</title>
+     <link href="../app.css" rel="stylesheet"/>
+     <link href="bloggen.css" rel="stylesheet"/>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet"/>
+     <script src="bloggen.js" defer></script>
+ </head>
+ <body>
+<!--==============================
+    SIDHUVUD OCH NAVIGATION
+===============================-->
+     <header>
+         <nav aria-label="Huvudnavigation">
+             <div class="logotyp">
+                 <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
+             </div>
+                 <ul id="huvudmeny">
+                     <!--aria-current="page" berättar för skärmläsare att länken är den aktuella sidan-->
+                     <li><a href="../Startsida/index.html">Startsida</a></li>
+                     <li><a href="../Mina_svampar/mina_svampar.html">Mina svampar</a></li>
+                     <li><a href="../Information/information.html">Information</a></li>
+                     <li><a href="bloggen.html" aria-current="page">Bloggen</a></li>
+                     <!--aria-hidden="true" berättar för skärmläsare att ikonen ska ignoreras-->
+                     <li><a href="../Inloggning/inloggning.html">
+                         <i aria-hidden="true" class="fa-regular fa-user"></i>Inloggning</a></li>
+                 </ul>
+         </nav>
+     </header>
+<!--==============================
+    SIDANS HUVUDINNEHÅLL
+==============================--> 
+     <main>
+         <section aria-labelledby="page-title" class="blog-intro">
+             <p class="eyebrow">Berättelser från skogen</p>
+             <h1 id="page-title">Svampletarnas blogg</h1>
+             <p>
+             Här delar medlemmarna med sig av svampfynd, utflykter och tips. 
+             Alla kan läsa inläggen. För att skriva eller kommentera 
+             behöver du vara inloggad.
+             </p>
+         </section>
+         <section aria-labelledby="account-title" class="account-panel">
+             <h2 id="account-title">Medlemsstatus</h2>
+             <p aria-live="polite" id="account-message" role="status">Kontrollerar inloggning</p>
+             <p>
+             <a href="../Inloggning/inloggning.html">Gå till inloggningssidan</a>
+             om du inte är inloggad.</p>
+         </section>
+         <section aria-labelledby="write-title" class="write-panel" hidden="" id="write-section">
+             <h3 id="write-title">Skriv ett blogginlägg</h3>
+             <form id="post-form">
+                 <label for="post-title">Rubrik</label>
+                 <input id="post-title" maxlength="120" name="title" required=""/>
+                 <label for="post-body">Ditt inlägg</label>
+                 <textarea id="post-body" maxlength="5000" name="body" required="" rows="6"></textarea>
+                 <button type="submit">Publicera inlägg</button>
+                 <p aria-live="polite" class="status" id="post-status" role="status"></p>
+             </form>
+         </section>
+         <section aria-labelledby="posts-title">
+             <h3 id="posts-title">Blogginlägg</h3>
+             <p class="empty-message" hidden="" id="empty-message">
+             Det finns inga blogginlägg ännu. Logga in och skriv det första!</p>
+             <div aria-live="polite" class="posts" id="posts"></div>
+         </section>
+     </main>
+<!--==============================
+    SIDFOT 
+==============================-->
+ <footer>
+     <p>Svampletarna – För dig som älskar skogen</p>
+     <p>&copy; 2026 Svampletarna</p>
+ </footer>
+ </body>
+ </html>

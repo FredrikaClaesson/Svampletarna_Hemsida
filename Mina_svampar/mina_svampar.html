@@ -1,83 +1,71 @@
 <!--===============================
     BASINNEHÅLL
     ===============================-->
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!DOCTYPE html>
+ <html lang="sv">
+ <head>
+     <meta charset="utf-8"/>
+     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
      <title>Mina svampar | Svampletarna</title>
-     <link rel="stylesheet" href="../CSS/app.css">
-     <link rel="stylesheet" href="../CSS/mina_svampar.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-     <script src="../JS/mina_svampar.js" defer></script>
-</head>
+     <link href="../app.css" rel="stylesheet"/>
+     <link href="mina_svampar.css" rel="stylesheet"/>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet"/>
+     <script src="mina_svampar.js" defer></script>
+ </head>
+ 
+ <body>
+<!--==============================
+    SIDHUVUD OCH NAVIGATION
+===============================-->
+     <header>
+         <nav aria-label="Huvudnavigation">
+             <div class="logotyp">
+                 <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
+             </div>
+                 <ul id="huvudmeny">
+                     <!--aria-current="page" berättar för skärmläsare att länken är den aktuella sidan-->
+                     <li><a href="../Startsida/index.html">Startsida</a></li>
+                     <li><a href="mina_svampar.html" aria-current="page">Mina svampar</a></li>
+                     <li><a href="../Information/information.html">Information</a></li>
+                     <li><a href="../Bloggen/bloggen.html">Bloggen</a></li>
+                     <!--aria-hidden="true" berättar för skärmläsare att ikonen ska ignoreras-->
+                     <li><a href="../Inloggning/inloggning.html">
+                         <i aria-hidden="true" class="fa-regular fa-user"></i>Inloggning</a></li>
+                 </ul>
+         </nav>
+     </header>
+<!--==============================
+    SIDANS HUVUDINNEHÅLL
+==============================-->
+     <main>
+         <section>
+             <h1>Mina svampar</h1>
+             <!-- Ljusgrön informationsruta -->
+             <p class="green-section">
+             <i aria-hidden="true" class="fa-solid fa-seedling"></i>
+             Här hittar du alla dina svampar</p>
+             <div class="mushroom-card" id="muschroom-list"></div>
+             <!-- Behållaren gör att knappen och texten kan ligga bredvid
+             varandra med hjälp av Flexbox -->
+             <div class="clear">
+                 <!-- Knappen rensar användarens svamplista -->
+                 <button class="red" id="red.button" type="button">
+                 <i aria-hidden="true" class="fa-solid fa-trash"></i>Rensa historik</button>
+                 <!-- Varningstext bredvid knappen -->
+                 <p class="warning-text">
+                 <i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i>
+                 <span>Varning!</span>Alla svampar tas bort.</p>
+             </div>
+         </section>
+     </main>
+<!--==============================
+    SIDFOT 
+==============================-->
+ <footer>
+     <p>Svampletarna – För dig som älskar skogen</p>
+     <p>&copy; 2026 Svampletarna</p>
+ </footer>
+ </body>
+ </html>
 
-
-
-<body>
-  <!--==============================
-      SIDHUVUD OCH NAVIGATION 
-      ==============================-->
-  <header>
-    <nav aria-label="Huvudnavigation">
-      <div class="logotyp">
-         <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
-         <h1>Svampletarna</h1>
-      </div>
-      <ul>
-         <li>
-            <a href="index.html">Startsida</a>
-         </li>
-         <li>
-            <a href="mina_svampar.html" aria-current="page">Mina svampar</a>
-         </li>
-         <li>
-            <a href="svamp_risker.html">Svamprisker</a>
-         </li>
-      </ul>
-    </nav>
-  </header>
-
-
-
-  <!--==============================
-      SIDANS HUVUDINNEHÅLL
-      ==============================-->
-  <main>
-    <section>
-        <h2>Mina svampar</h2>
-        <!-- Ljusgrön informationsruta -->
-        <p class="green-section">
-          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
-          Här hittar du alla dina svampar
-        </p>
-        <div class="mushroom-card" id="muschroom-list"></div>
-         <!-- Behållaren gör att knappen och texten kan ligga bredvid 
-          varandra med hjälp av Flexbox -->
-        <div class="clear">
-            <!-- Knappen rensar användarens svamplista -->
-            <button type="button" id="red.button" class="red">
-                   <i class="fa-solid fa-trash" aria-hidden="true"></i>
-                   Rensa historik
-            </button>
-            <!-- Varningstext bredvid knappen -->
-            <p class="warning-text">
-              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-              <span>Varning!</span> Alla svampar tas bort.
-            </p>
-        </div>
-    </section>
-  </main>
-
-
-
-  <!--==============================
-      SIDFOT 
-      ==============================-->
-  <footer>
-    <p>Svampletarna – För dig som älskar skogen</p>
-    <p>&copy; 2026 Svampletarna</p>
-  </footer>
-</body>
-</html>
+  
