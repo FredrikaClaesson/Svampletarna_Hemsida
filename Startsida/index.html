@@ -10,6 +10,7 @@
      <link rel="stylesheet" href="../app.css">
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+     <script src="../menu.js" defer></script>
      <script src="script.js" defer></script>
  </head>
  <body>
@@ -21,6 +22,10 @@
              <div class="logotyp">
                  <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
              </div>
+                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="huvudmeny">
+                     <span class="visually-hidden">Öppna menyn</span>
+                     <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                 </button>
                  <ul id="huvudmeny">
                      <!--aria-current="page" berättar för skärmläsare att länken är den aktuella sidan-->
                      <li><a href="index.html" aria-current="page">Startsida</a></li>
@@ -42,7 +47,7 @@
              <img class="hero-image"
              src="../images/hero-mushroom.jpg"
              alt="En liten svamp som växer i grön mossa">
-         <section class="hero-content">
+         <div class="hero-content">
              <h1>Upptäck svamparnas fascinerande värld</h1>
              <p>
                 Svampletarnas förening samlar människor med ett
@@ -50,15 +55,15 @@
                 lära dig mer, dela dina fynd, få tips och vara en del
                 av vårt växande community.
              </p>
-         </section>
+         </div>
          </section>
          <!-- De fyra informationsrutorna -->
          <section class="features" aria-label="Detta hittar du hos oss">
              <article>
                  <i aria-hidden="true" class="fa-solid fa-seedling"></i>
-                 <h2>Lär dig mer</h2>
-                 <p>Få kunskap om olika svampar och deras miljöer.</p>
-                 <a href="../Information/information.html">Läs mer</a>
+                 <h2>Upptäck svampar</h2>
+                 <p>Få kunskap om olika svampar och vart de finns.</p>
+                 <a href="#svamp-section">Läs mer</a>
              </article>
              <article>
                  <i aria-hidden="true" class="fa-solid fa-leaf"></i>

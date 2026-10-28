@@ -1,94 +1,143 @@
-.blog-intro, .account-panel, .write-panel, .post {
-  border-radius: 1rem;
-  padding: clamp(1rem, 3vw, 1.75rem);
-  margin-block: 1.25rem;
-}
-.blog-intro {
-  background: var(--lightgreen);
-}
-.blog-intro h2 {
-  margin-block: .2rem .6rem;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-}
-.eyebrow {
-  color: var(--green);
-  font-size: .85rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.account-panel, .write-panel, .post {
-  background: var(--white);
-  box-shadow: 0 2px 8px #00000012;
-}
+/* ===================================
+   INTRODUKTION OCH MEDLEMSSTATUS
+   =================================== */
+/* Clamp - anpassar textstorlek efter skärm */
+/* Introduktion, medlemsstatus och formulär */
+.blog-intro,
+.account-panel,
 .write-panel {
-  background: var(--lightgreen);
-}
-form {
-  display: grid;
-  gap: .55rem;
-  max-width: 760px;
-}
-label {
-  font-weight: 700;
-}
-input, textarea {
-  width: 100%;
-  border: 1px solid #687b6c;
-  border-radius: .4rem;
-  padding: .7rem;
-  color: var(--text);
-  background: var(--white);
-  font: inherit;
-}
-textarea {
-  resize: vertical;
-}
-input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
-  outline: 3px solid #a15c14;
-  outline-offset: 3px;
-}
-.posts {
-  display: grid;
-  gap: 1rem;
-}
-.post h3 {
-  margin-block: .2rem .5rem;
-}
-.post-meta {
-  color: #536456;
-  font-size: .9rem;
-}
-.post-content {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-.comments {
-  border-top: 1px solid var(--lightgreen);
-  margin-top: 1rem;
-  padding-top: .75rem;
-}
-.comments h4 {
-  margin: .25rem 0 .5rem;
-}
-.comment {
-  border-left: 3px solid var(--lightgreen);
-  padding: .2rem .8rem;
-  margin-block: .75rem;
-}
-.comment p {
-  margin-block: .25rem;
-}
+  margin-block: 1.25rem; 
+  padding: clamp(1rem, 3vw, 1.75rem); 
+  border-radius: 1rem;} 
+
+/* Introduktion - huvudrubrik */
+.blog-intro h1 {
+  margin: .2rem 0 .6rem; 
+  font-size: clamp(2.2rem, 5vw, 3.5rem);} 
+
+/* Introduktion - text */
+.blog-intro p {
+  max-width: 43ch;
+  margin: 0 0 1.2rem; 
+  color: #536b58; 
+  font-size: clamp(.95rem, 1.1vw, 1.1rem); 
+  line-height: 1.55;} 
+
+
+  /* ===================================
+   FORMULÄR FÖR BLOGGINLÄGG
+   =================================== */
+/* Medlemsstatus och inlägg */
+.account-panel,
+.write-panel {
+  /* Använder bakgrundsfärgen som sparats i CSS-variabeln */
+  background: var(--surface); 
+  border: 1px solid var(--line); 
+  box-shadow: 0 2px 8px #00000012;} 
+
+/* Rubriker */
+.account-panel h2,
+.write-panel h2,
+.write-panel h3 {
+  margin-top: 0;} 
+
+  .write-panel {
+  background: var(--lightgreen);} 
+
+/* Kommentarsfält */
+#post-form,
 .comment-form {
-  margin-top: .8rem;
-}
+  display: grid;
+  gap: .55rem; 
+  max-width: 760px;} 
+
+/* Textfält och-rutor fyller tillgänglig bredd */
+#post-form input,
+#post-form textarea,
+.comment-form textarea {
+  width: 100%;} 
+
+
+/* ===================================
+   BLOGGINLÄGG
+   =================================== */
+/* Inlägg - placering */
+.posts {
+  display: grid; 
+  gap: 1rem;}
+
+/* Inlägg - styling */
+.post {
+  min-width: 0; 
+  margin: 0; 
+  padding: clamp(1rem, 3vw, 1.75rem);} 
+
+/* Inlägg - rubrik */
+.post h3 {
+  margin-block: .2rem .5rem;} /* Ger lite avstånd ovanför och under rubriken */
+
+/* Inlägg - styling för författare och datum */
+.post-meta {
+  color: #536456; /* Ger informationstexten en dämpad grön färg */
+  font-size: .9rem;} /* Gör informationstexten lite mindre än vanlig text */
+
+/* Inlägg - text */
+.post-content {
+  /* Bevarar radbrytningar och extra mellanslag i texten */
+  white-space: pre-wrap; 
+  /* Tillåter långa ord och länkar att brytas så att de får plats */
+  overflow-wrap: anywhere;} 
+
+
+/* ===================================
+   KOMMENTARER
+   =================================== */
+/* Kommentar */
+.comments {
+  margin-top: 1rem; 
+  padding-top: .75rem; 
+  border-top: 1px solid var(--lightgreen);} 
+
+/* Kommentar - rubrik */
+.comments h4 {
+  margin: .25rem 0 .5rem;} 
+
+/* Kommentar - styling */
+.comment {
+  margin-block: .75rem; 
+  padding: .2rem .8rem; 
+  border-left: 3px solid var(--lightgreen);} 
+
+/* Kommentar - text */
+.comment p {
+  margin-block: .25rem;} 
+
+/* Kommentar - formulär */
+.comment-form {
+  margin-top: .8rem;} 
+
+/* Statusmeddelanden - inlägg sparats */
 .status {
-  min-height: 1.5em;
-  color: var(--red);
-  font-weight: 700;
-}
+  /* Reserverar utrymme så att layouten inte ändras lika mycket när text visas */
+  min-height: 1.5em; 
+  color: var(--green); 
+  font-weight: 700;} 
+
+/* Meddelanden - saknas innehåll */
 .empty-message {
-  padding: 1rem;
-  border: 1px dashed var(--green);
-  border-radius: .6rem;
-}
+  padding: 1rem; 
+  /* Lägger till en grön streckad kant */
+  border: 1px dashed var(--green); 
+  border-radius: .6rem; 
+  background: var(--surface);} 
+
+
+/* ===================================
+   RESPONSIV DESIGN
+   =================================== */
+@media (max-width: 600px) {
+  .blog-intro,
+  .account-panel,
+  .write-panel,
+  .post {
+    border-radius: .9rem;}}

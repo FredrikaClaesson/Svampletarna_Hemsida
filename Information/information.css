@@ -1,30 +1,66 @@
+/* ===================================
+   INTRODUKTION
+   =================================== */
+.information-intro {
+  margin-block: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border-radius: 1rem;}
+
+.information-intro h1 {
+  margin: .2rem 0 .6rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);}
+
+.information-intro p {
+  max-width: 43ch;
+  margin: 0 0 1.2rem;
+  color: #536b58;
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  line-height: 1.55;}
+
+
+/* ===================================
+   INFORMATIONSKORT
+   =================================== */
 .svampkort > article > h2 {
   margin-top: 0;
-}
+  font-size: 1.25rem;}
+
+.svampkort > article > p {
+  margin: .5rem 0 1rem;}
+
 .svampkort > article > div {
   display: flex;
-  justify-content: center;
-}
+  align-items: center;
+  gap: .5rem;
+  margin: 1rem 0;
+  padding: .6rem .75rem;}
+
 .svampkort > article > div > i {
-  align-content: center;
-  margin-right: 0.5rem;
-}
+  flex: 0 0 auto;}
+
 .svampkort > article > div > p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.deadly, .poisonus {
-  background-color: var(--lightpink);
-  color: var(--red);
+  margin: 0;
+  font-weight: 700;}
+
+.svampkort > article ul {
+  padding-left: 1.25rem;}
+
+.svampkort > article li {
+  margin: .5rem 0;}
+
+
+/* ===================================
+   VARNINGAR OCH RISKER
+   =================================== */
+.deadly,
+.poisonous {
   border: 1px solid var(--lightred);
-  border-radius: 0.5rem;
-  margin: 0;
-}
+  border-radius: .5rem;
+  background: var(--lightpink);
+  color: var(--red);}
+
 .lowDanger {
-  background-color: var(--lightgreen);
-  color: var(--darkgreen);
-  text-align: center;
-  border: 1px solid var(--green);
-  border-radius: 0.5rem;
-  margin: 0;
-}
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: var(--lightgreen);
+  color: var(--darkgreen);}
