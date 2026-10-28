@@ -10,6 +10,7 @@
      <link href="../app.css" rel="stylesheet"/>
      <link href="inloggning.css" rel="stylesheet"/>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet"/>
+     <script src="../menu.js" defer></script>
      <script src="inloggning.js" defer></script>
  </head>
  
@@ -22,6 +23,10 @@
              <div class="logotyp">
                  <img src="../logotyp.jpg" alt="Svampletarnas logotyp">
              </div>
+                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="huvudmeny">
+                     <span class="visually-hidden">Öppna menyn</span>
+                     <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                 </button>
                  <ul id="huvudmeny">
                      <!--aria-current="page" berättar för skärmläsare att länken är den aktuella sidan-->
                      <li><a href="../Startsida/index.html">Startsida</a></li>
@@ -39,7 +44,7 @@
 ==============================--> 
  <main>
      <section class="login-intro">
-         <h2>Välkommen tillbaka till skogen</h2>
+         <h1>Välkommen tillbaka till skogen</h1>
          <p>Logga in för att ta del av föreningens medlemssida.</p>
      </section>
      <!-- Behållare för bild och inloggning -->
@@ -47,7 +52,7 @@
      <img alt="Svampar i en svensk skog" src="../images/loginbild.jpg"/>
      <!-- Sektion som innehåller inloggningsformuläret -->
      <section id="login-section">
-         <h3>Logga in</h3>
+         <h2>Logga in</h2>
          <!--Formulär för namn och lösenord-->
          <form id="login-form">
              <!--Inmatningsfält för namn-->
@@ -59,7 +64,7 @@
              <button type="submit">Logga in</button>
          </form>
          <!--Felmeddelande-->
-         <p id="error-message"></p>
+         <p id="error-message" role="alert" aria-live="polite"></p>
      </section>
      <!-- Sektion som visas när användaren är inloggad, hidden gör att sektionen är dold från början -->
      <section hidden="" id="logged-in-section">

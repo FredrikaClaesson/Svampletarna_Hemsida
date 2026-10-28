@@ -1,9 +1,10 @@
-/*GEMENSAM STYLING FÖR ALLA SIDOR I PROJEKTET*/
+/* GEMENSAM STYLING FÖR ALLA SIDOR I PROJEKTET 
+
+
+
 /* ===================================
    FÄRGER
    =================================== */
-/* :root används för att skapa variabler
-   som kan återanvändas i hela CSS-filen. */
 :root {
   --serif: Georgia, "Times New Roman", serif;
   --darkgreen: #173d2b;
@@ -16,34 +17,46 @@
   --red: #b42318;
   --lightred: #f8d0c8;
   --surface: #fffefa;
-  --line: #cbd5c3;
-}
+  --line: #cbd5c3;}
 
 
 /* ===================================
    GRUNDINSTÄLLNINGAR
    =================================== */
-/* box-sizing gör att padding och border
-   räknas in i elementets totala storlek. */
-* {
-  box-sizing: border-box;
-}
+* {box-sizing: border-box;}
+
+/* ... */
+[hidden] {display: none !important;}
+
+/* Mjuk scrollning vid användning av interna länkar */
+html {scroll-behavior: smooth;}
+
 body {
+  min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   background: var(--cream);
   color: var(--text);
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-/* Gemensam styling för rubriker */
-header h1,
-main h1,
+  line-height: 1.6;}
+
+img {max-width: 100%;}
+
+header h1, 
+main h1, 
 main h2,
-main h3 {
+main h3,
+main h4 {
   color: var(--darkgreen);
   font-family: var(--serif);
-  line-height: 1.15;
-}
+  line-height: 1.2;}
+
+main {
+  flex: 1;
+  width: min(1440px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;}
 
 
 /* ===================================
@@ -52,38 +65,28 @@ main h3 {
 header {
   background: rgba(245, 243, 232, .97);
   border-bottom: 1px solid rgba(203, 213, 195, .55);
-  padding: .65rem clamp(1rem, 4vw, 3.5rem);
-}
+  padding: .65rem clamp(1rem, 4vw, 3.5rem);}
+
 header nav {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
   max-width: 1440px;
-  margin: 0 auto;
-}
-/* Logotypen placeras bredvid navigationen */
-.logotyp,
-header nav > a:first-child:has(img) {
+  margin: 0 auto;}
+
+.logotyp {
   display: flex;
   align-items: center;
-  gap: .65rem;
-  min-width: 0;
-  text-decoration: none;
-}
-/* Bilden anpassas efter skärmens storlek */
-.logotyp img,
-header nav > a:first-child:has(img) img {
+  min-width: 0;}
+
+.logotyp img {
   display: block;
   width: clamp(190px, 27vw, 330px);
-  height: auto;
   max-height: 86px;
   object-fit: contain;
-  object-position: left center;
-}
-/* Navigationslänkarna placeras på en rad
-   och får radbrytas om skärmen blir för liten. */
+  object-position: left center;}
+
 header nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -92,68 +95,32 @@ header nav ul {
   gap: clamp(.2rem, 1.2vw, 1rem);
   margin: 0;
   padding: 0;
-  list-style: none;
-}
-/* Gemensam styling för navigationslänkarna */
-header nav ul a,
-header nav > a:not(.logotyp) {
-  display: inline-block;
+  list-style: none;}
+
+header nav ul a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
   padding: .65rem .85rem;
   border-radius: 2rem;
-  background: transparent;
   color: var(--darkgreen);
   font-size: .9rem;
   text-decoration: none;
-  white-space: nowrap;
-}
-/* Ändrar utseendet när man håller musen över
-   en länk eller befinner sig på den aktuella sidan. */
+  white-space: nowrap;}
+
 header nav ul a:hover,
-header nav ul a[aria-current="page"],
-header nav > a:not(.logotyp):hover {
+header nav ul a[aria-current="page"] {
   background: var(--darkgreen);
-  color: var(--white);
-}
+  color: var(--white);}
+
+/* Mobilknappen visas bara på mindre skärmar. */
+.menu-toggle {
+  display: none;}
 
 
 /* ===================================
-   HUVUDINNEHÅLL
+   GEMENSAMMA KORT
    =================================== */
-main {
-  width: min(1440px, 100% - 2rem);
-  margin: 0 auto;
-  padding: 1.5rem 0 3rem;
-}
-/* Gemensamma rundade hörn för större sektioner */
-main > section,
-main > .login-container,
-main > .svampkort,
-main > #articles {
-  border-radius: 1.5rem;
-}
-/* Rubriker får en ljusgrön bakgrund */
-main > h2 {
-  margin: .6rem 0 1.2rem;
-  padding: 1rem clamp(1rem, 3vw, 2rem);
-  background: linear-gradient(180deg, #e9eddd 0%, #eef0e2 100%);
-  border-radius: 3rem 3rem .8rem .8rem;
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-}
-
-
-/* ===================================
-   SVAMPKORT - CSS GRID
-   =================================== */
-/* Skapar en behållare för alla svampkort.
-   Mobile first innebär att vi börjar med en kolumn. */
-.svampkort {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding: 1rem 0;
-}
-/* Varje svampkort får vit bakgrund,
-   rundade hörn och en diskret skugga. */
 .svampkort article,
 .mushroom-card article,
 .post,
@@ -163,59 +130,52 @@ main > h2 {
   background: var(--surface);
   border: 1px solid #d7dfd0;
   border-radius: 1rem 1rem 1.7rem 1rem;
-  box-shadow: 0 4px 14px #173d2b0d;
-}
+  box-shadow: 0 4px 14px #173d2b0d;}
+
+.svampkort {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;}
+
 .svampkort article {
-  padding: 1rem;
-}
-/* Bilderna fyller kortets bredd.
-   object-fit beskär bilden om det behövs. */
+  min-width: 0;
+  padding: 1rem;}
+
+.svampkort article > h2 {
+  margin-top: 0;}
+
 .svampkort img {
   width: 100%;
   height: 200px;
   border-radius: .5rem;
-  object-fit: cover;
-}
-/* Svampens namn */
-.svampkort h2 {
-  margin-bottom: .25rem;
-}
-/* h2 + p väljer ett p-element som kommer
-   direkt efter h2. Här används kursiv text
-   för svampens latinska namn. */
-.svampkort h2 + p {
-  font-style: italic;
-}
-/* Kryssrutan och dess text placeras bredvid varandra.
-   cursor gör muspekaren till en hand. */
-.svampkort label {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  cursor: pointer;
-}
+  object-fit: cover;}
 
 
 /* ===================================
    FORMULÄR
    =================================== */
-/* Gemensam styling för inmatningsfält */
 input,
 textarea,
 select {
+  max-width: 100%;
   padding: .7rem .8rem;
   border: 1px solid #9aa995;
   border-radius: .55rem;
   background: var(--surface);
   color: var(--text);
-  font: inherit;
-}
+  font: inherit;}
+
+textarea {
+  resize: vertical;}
+
+label {
+  font-weight: 700;}
 
 
 /* ===================================
    GEMENSAMMA KNAPPAR
    =================================== */
-/* Gröna knappar */
 button,
 input[type="submit"] {
   padding: .7rem 1.2rem;
@@ -225,129 +185,126 @@ input[type="submit"] {
   color: var(--white);
   font: inherit;
   font-weight: 700;
-  cursor: pointer;
-}
-/* Mörkgrön knapp blir ljusare vid hover */
+  cursor: pointer;}
+
 button:hover,
 input[type="submit"]:hover {
-  background: var(--green);
-}
-/* Röda knappar, exempelvis ta bort */
+  background: var(--green);}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .65;}
+
 button.red {
   margin: 0;
   padding: .8rem 1.5rem;
   border: 1px solid var(--lightred);
   border-radius: .5rem;
   background: var(--lightpink);
-  color: var(--red);
-}
+  color: var(--red);}
+
 button.red:hover {
-  background: var(--lightred);
-}
+  background: var(--lightred);}
+  
+/* Länkar som ska se ut som knappar */
+.button-link {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--green);
+    color: var(--white);
+    border: 2px solid var(--green);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;}
+
+.button-link:hover {
+    background-color: var(--darkgreen);
+    border-color: var(--darkgreen);}
+
+.button-link:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;}
 
 
 /* ===================================
    TILLGÄNGLIGHET
    =================================== */
-/* Tydlig markering när man navigerar med tangentbord */
 :focus-visible {
   outline: 3px solid #a15c14;
-  outline-offset: 4px;
-}
+  outline-offset: 4px;}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;}
 
 
 /* ===================================
    FOOTER
    =================================== */
 footer {
-  margin-top: 1rem;
+  margin-top: auto;
   padding: 1.5rem 1rem;
   border-radius: 2rem 2rem 0 0;
   background: var(--lightgreen);
   color: var(--darkgreen);
-  text-align: center;
-}
+  text-align: center;}
 footer p {
-  margin: .3rem 0;
-}
+  margin: .3rem 0;}
 
 
 /* ===================================
-   RESPONSIV DESIGN - MOBILE FIRST
+   RESPONSIV DESIGN
    =================================== */
-/* CSS är i första hand anpassad för mobiltelefoner.
-   Media queries ändrar layouten när skärmen blir större. */
-
-/* SURFPLATTA - MINST 600PX */
 @media (min-width: 600px) {
-  /* Två svampkort per rad i två lika stora kolumner */
   .svampkort {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  nav ul a {
-    font-size: 1rem;
-  }
-}
-/* MINDRE SKÄRMAR - HÖGST 900PX */
-@media (max-width: 900px) {
-  /* Navigationen får radbrytas på mindre skärmar */
-  header nav {
-    flex-wrap: wrap;
-  }
-  /* Logotypen anpassas till skärmens bredd */
-  .logotyp img,
-  header nav > a:first-child:has(img) img {
-    width: clamp(170px, 48vw, 260px);
-    max-height: 65px;
-  }
-  /* Navigationslänkarna placeras på en ny rad */
-  header nav ul {
-    flex-basis: 100%;
-    justify-content: flex-start;
-    gap: .2rem;
-  }
-  header nav ul a,
-  header nav > a:not(.logotyp) {
-    padding: .6rem .75rem;
-  }
-  /* Minskar marginalerna runt innehållet */
-  main {
-    width: min(100% - 1.25rem, 1440px);
-  }
-}
-/* DATOR - MINST 900PX */
+    grid-template-columns: repeat(2, minmax(0, 1fr));}}
+
 @media (min-width: 900px) {
-  /* Tre svampkort per rad i tre lika stora kolumner */
   .svampkort {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-/* MOBIL - HÖGST 600PX */
+    grid-template-columns: repeat(3, minmax(0, 1fr));}}
+
+@media (max-width: 900px) {
+  header nav {
+    flex-wrap: wrap;}
+  .logotyp img {
+    width: clamp(170px, 48vw, 260px);
+    max-height: 65px;}
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    min-width: 44px;
+    min-height: 44px;}
+  header nav ul {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .2rem;
+    padding: .5rem 0;}
+  header nav ul.menu-open {
+    display: flex;}
+  header nav ul a {
+    display: flex;
+    width: 100%;
+    padding: .7rem .85rem;}
+  main {
+    width: min(100% - 1.25rem, 1440px);}}
+
 @media (max-width: 600px) {
   header {
-    padding: .6rem .75rem;
-  }
-  header nav ul {
-    gap: .15rem;
-  }
-  header nav ul a,
-  header nav > a:not(.logotyp) {
-    padding: .55rem .65rem;
-    font-size: .85rem;
-  }
+    padding: .6rem .75rem;}
   main {
-    padding-top: 1rem;
-  }
-  main > h2 {
-    border-radius: 2rem 2rem .7rem .7rem;
-  }
-  /* Två kolumner för funktionerna på startsidan */
-  .features {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  /* En kolumn för svampar och blogginlägg */
-  .svampar,
-  .blog-teasers {
-    grid-template-columns: 1fr;
-  }
-}
+    padding-top: 1rem;}
+  .page-title {
+    border-radius: 2rem 2rem .7rem .7rem;}
+  .svampkort {
+    grid-template-columns: 1fr;}}

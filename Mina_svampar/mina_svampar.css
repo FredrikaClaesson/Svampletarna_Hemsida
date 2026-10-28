@@ -1,80 +1,85 @@
 /* ===================================
-   MINA SVAMPAR - SIDANS LAYOUT
+   INTRODUKTION
    =================================== */
-/* Huvudinnehållet */
-section {
+.mina-svampar {
+  margin-block: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border-radius: 1rem;}
+
+.mina-svampar h1 {
+  margin: .2rem 0 .6rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);}
+
+.mina-svampar p {
+  max-width: 43ch;
+  margin: 0 0 1.2rem;
+  color: #536b58;
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  line-height: 1.55;}
+
+
+/* ===================================
+   SVAMPKORT
+   =================================== */
+.mushroom-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;}
+
+.mushroom-card article {
+  min-width: 0;
+  overflow: hidden;}
+
+.mushroom-card article img {
+  display: block;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-/* Sidans huvudrubrik */
-section h2 {
-  font-size: 3rem;
-  margin: 0 0 1rem;
-}
-/* Beskrivande text */
-section > p {
-  margin-bottom: 1.5rem;
-}
-/* ===================================
-   GRÖN INFORMATIONSRUTA
-   =================================== */
-.green-section {
-  background-color: var(--lightgreen);
+  height: 180px;
+  object-fit: cover;}
+
+.mushroom-card .svamp-info {
+  padding: 1rem;}
+
+.mushroom-card h2 {
+  margin: 0 0 .5rem;
+  font-size: 1.25rem;}
+
+.mushroom-card p {
+  margin: .25rem 0;}
+
+.empty-mushrooms {
+  grid-column: 1 / -1;
+  margin: 0;
   padding: 1rem;
-  border-radius: 0.5rem;
-  margin: 1.5rem 0;
-  color: var(--darkgreen);
-  font-weight: bold;
-}
+  border: 1px dashed var(--green);
+  border-radius: .75rem;
+  background: var(--surface);}
+
+
 /* ===================================
-   AVSTÅND MELLAN SVAMPKORT OCH KNAPP
-   =================================== */
-section .mushroom-card {
-  margin: 1.5rem 0;
-}
-/* ===================================
-   RENSA HISTORIK - FLEXBOX
+   RENSA HISTORIK
    =================================== */
 .clear {
   display: flex;
-  /* Placerar knappen och texten bredvid varandra */
   align-items: center;
-  gap: 1rem;
-  /* Låter texten flytta ner på en ny rad
-     om skärmen är för smal */
   flex-wrap: wrap;
-}
-/* Varningstext bredvid knappen */
-.clear p {
-  margin: 0;
-  color: var(--red);
-  font-size: 0.8rem;
-}
-/* Varningsikon */
-.warning-text i {
-  color: var(--red);
-  margin-right: 0.3rem;
-  font-size: 0.8rem;
-}
-/* Gör text i fetstil */
-.clear p span {
-  font-weight: bold;
-}
-/* Sopkorg ikon på knapp Rensa historik */
+  gap: 1rem;}
+
 button.red i {
-  color: var(--red);
-  margin-right: 0.5rem;
-}
+  margin-right: .5rem;
+  color: var(--red);}
+
 /* ===================================
-   DATOR - MINST 768PX
+   RESPONSIV DESIGN
    =================================== */
-@media (min-width: 768px) {
+@media (max-width: 900px) {
+  .mushroom-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));}}
+
+@media (max-width: 600px) {
   .mina-svampar {
-    padding: 3rem 2rem;
-  }
-  .mina-svampar h1 {
-    font-size: 2.5rem;
-  }
-}
+    padding: 1rem;}
+  .mushroom-card {
+    grid-template-columns: 1fr;}
+  .mushroom-card article img {
+    height: 220px;}}
